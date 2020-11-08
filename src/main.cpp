@@ -41,8 +41,8 @@ EasyNTPClient ntpClient(udp, "pool.ntp.org", ((5*60*60)+(30*60))); // IST = GMT 
 #define TEMPERATURE_X_2_POSITION		TEMPERATURE_X_1_POSITION
 #define TEMPERATURE_X_3_POSITION		TEMPERATURE_X_1_POSITION
 #define TEMPERATURE_X_4_POSITION		TEMPERATURE_X_1_POSITION
-#define TEMPERATURE_Y_CIRCLE_POSITION	TEMPERATURE_X_1_POSITION + 54
-#define TEMPERATURE_Y_UNITS_POSITION	TEMPERATURE_X_1_POSITION + 60
+#define TEMPERATURE_X_CIRCLE_POSITION	TEMPERATURE_X_1_POSITION + 54
+#define TEMPERATURE_X_UNITS_POSITION	TEMPERATURE_X_1_POSITION + 60
 
 
 //CS D8
@@ -335,8 +335,8 @@ void loop()
   tft.setTextColor(colorTempExterior, ST77XX_BLACK);  // set text color to yellow and black background
   tft.setCursor(TEMPERATURE_X_1_POSITION, TEMPERATURE_Y_1_POSITION);
   tft.print(_buffer);
-  tft.drawCircle(TEMPERATURE_Y_CIRCLE_POSITION, TEMPERATURE_Y_1_POSITION, 2, colorTempExterior);  // print degree symbol ( ° )
-  tft.setCursor(TEMPERATURE_Y_UNITS_POSITION, TEMPERATURE_Y_1_POSITION);
+  tft.drawCircle(TEMPERATURE_X_CIRCLE_POSITION, TEMPERATURE_Y_1_POSITION, 2, colorTempExterior);  // print degree symbol ( ° )
+  tft.setCursor(TEMPERATURE_X_UNITS_POSITION, TEMPERATURE_Y_1_POSITION);
   tft.print("C");
 
   // print temperature Salon (in °C)
@@ -349,8 +349,8 @@ void loop()
   tft.setTextColor(colorTempSalon, ST77XX_BLACK);  // set text color to magenta and black background
   tft.setCursor(TEMPERATURE_X_2_POSITION, TEMPERATURE_Y_2_POSITION);
   tft.print(_buffer);
-  tft.drawCircle(TEMPERATURE_Y_CIRCLE_POSITION, TEMPERATURE_Y_2_POSITION, 2, colorTempSalon);  // print degree symbol ( ° )
-  tft.setCursor(TEMPERATURE_Y_UNITS_POSITION, TEMPERATURE_Y_2_POSITION);
+  tft.drawCircle(TEMPERATURE_X_CIRCLE_POSITION, TEMPERATURE_Y_2_POSITION, 2, colorTempSalon);  // print degree symbol ( ° )
+  tft.setCursor(TEMPERATURE_X_UNITS_POSITION, TEMPERATURE_Y_2_POSITION);
   tft.print("C");
 
   // print temperature Alén (in °C)
@@ -363,8 +363,8 @@ void loop()
   tft.setTextColor(colorTempAlen, ST77XX_BLACK);  // set text color to orange and black background
   tft.setCursor(TEMPERATURE_X_3_POSITION,TEMPERATURE_Y_3_POSITION);
   tft.print(_buffer);
-  tft.drawCircle(TEMPERATURE_Y_CIRCLE_POSITION, TEMPERATURE_Y_3_POSITION, 2, colorTempAlen);  // print degree symbol ( ° )
-  tft.setCursor(TEMPERATURE_Y_UNITS_POSITION, TEMPERATURE_Y_3_POSITION);
+  tft.drawCircle(TEMPERATURE_X_CIRCLE_POSITION, TEMPERATURE_Y_3_POSITION, 2, colorTempAlen);  // print degree symbol ( ° )
+  tft.setCursor(TEMPERATURE_X_UNITS_POSITION, TEMPERATURE_Y_3_POSITION);
   tft.print("C");
 
   // print temperature Eder (in °C)
@@ -377,8 +377,8 @@ void loop()
   tft.setTextColor(colorTempEder, ST77XX_BLACK);  // set text color to orange and black background
   tft.setCursor(TEMPERATURE_X_4_POSITION,TEMPERATURE_Y_4_POSITION);
   tft.print(_buffer);
-  tft.drawCircle(TEMPERATURE_Y_CIRCLE_POSITION, TEMPERATURE_Y_4_POSITION, 2, colorTempEder);  // print degree symbol ( ° )
-  tft.setCursor(TEMPERATURE_Y_UNITS_POSITION, TEMPERATURE_Y_4_POSITION);
+  tft.drawCircle(TEMPERATURE_X_CIRCLE_POSITION, TEMPERATURE_Y_4_POSITION, 2, colorTempEder);  // print degree symbol ( ° )
+  tft.setCursor(TEMPERATURE_X_UNITS_POSITION, TEMPERATURE_Y_4_POSITION);
   tft.print("C");
 
 //  Serial.println(ntpClient.getUnixTime());
