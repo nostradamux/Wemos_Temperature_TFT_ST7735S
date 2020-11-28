@@ -25,8 +25,19 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.239157887" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/NTPClient"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/WiFiEsp/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/EasyNTPClient/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ArduinoJson/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ThingSpeak/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ESPDateTime/include"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ESPDateTime/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Time"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit ST7735 and ST7789 Library"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit GFX Library"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/SPI"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/libc/xtensa-lx106-elf/include"/>
@@ -34,21 +45,18 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip2/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/variants/d1_mini"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit BusIO"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit seesaw Library"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/SD"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/EEPROM"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266AVRISP/src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPUpdateServer/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266LLMNR"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266NetBIOS"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SSDP"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SdFat/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFiMesh/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266httpUpdate/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS/src"/>
@@ -67,7 +75,7 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/tool-unity"/>
 								</option>
 								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.922107295" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" valueType="definedSymbols">
-									<listOptionValue builtIn="false" value="PLATFORMIO=50002"/>
+									<listOptionValue builtIn="false" value="PLATFORMIO=50004"/>
 									<listOptionValue builtIn="false" value="ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ARCH_ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ESP8266_WEMOS_D1MINI"/>
@@ -90,8 +98,19 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1096940598" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/NTPClient"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/WiFiEsp/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/EasyNTPClient/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ArduinoJson/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ThingSpeak/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ESPDateTime/include"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ESPDateTime/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Time"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit ST7735 and ST7789 Library"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit GFX Library"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/SPI"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/libc/xtensa-lx106-elf/include"/>
@@ -99,21 +118,18 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip2/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/variants/d1_mini"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit BusIO"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit seesaw Library"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/SD"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/EEPROM"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266AVRISP/src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPUpdateServer/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266LLMNR"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266NetBIOS"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SSDP"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SdFat/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFiMesh/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266httpUpdate/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS/src"/>
@@ -132,7 +148,7 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/tool-unity"/>
 								</option>
 								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.1198905600" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" valueType="definedSymbols">
-									<listOptionValue builtIn="false" value="PLATFORMIO=50002"/>
+									<listOptionValue builtIn="false" value="PLATFORMIO=50004"/>
 									<listOptionValue builtIn="false" value="ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ARCH_ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ESP8266_WEMOS_D1MINI"/>
@@ -155,8 +171,19 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.41298875" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/NTPClient"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/WiFiEsp/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/EasyNTPClient/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ArduinoJson/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ThingSpeak/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ESPDateTime/include"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ESPDateTime/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Time"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit ST7735 and ST7789 Library"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit GFX Library"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/SPI"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/libc/xtensa-lx106-elf/include"/>
@@ -164,21 +191,18 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip2/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/variants/d1_mini"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit BusIO"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit seesaw Library"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/SD"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/EEPROM"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266AVRISP/src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPUpdateServer/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266LLMNR"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266NetBIOS"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SSDP"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SdFat/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFiMesh/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266httpUpdate/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS/src"/>
@@ -197,7 +221,7 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/tool-unity"/>
 								</option>
 								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.884639970" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" valueType="definedSymbols">
-									<listOptionValue builtIn="false" value="PLATFORMIO=50002"/>
+									<listOptionValue builtIn="false" value="PLATFORMIO=50004"/>
 									<listOptionValue builtIn="false" value="ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ARCH_ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ESP8266_WEMOS_D1MINI"/>
@@ -246,8 +270,19 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.794801023" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/NTPClient"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/WiFiEsp/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/EasyNTPClient/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ArduinoJson/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ThingSpeak/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ESPDateTime/include"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ESPDateTime/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Time"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit ST7735 and ST7789 Library"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit GFX Library"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/SPI"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/libc/xtensa-lx106-elf/include"/>
@@ -255,21 +290,18 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip2/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/variants/d1_mini"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit BusIO"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit seesaw Library"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/SD"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/EEPROM"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266AVRISP/src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPUpdateServer/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266LLMNR"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266NetBIOS"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SSDP"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SdFat/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFiMesh/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266httpUpdate/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS/src"/>
@@ -288,7 +320,7 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/tool-unity"/>
 								</option>
 								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.1743427839" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" valueType="definedSymbols">
-									<listOptionValue builtIn="false" value="PLATFORMIO=50002"/>
+									<listOptionValue builtIn="false" value="PLATFORMIO=50004"/>
 									<listOptionValue builtIn="false" value="ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ARCH_ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ESP8266_WEMOS_D1MINI"/>
@@ -311,8 +343,19 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.650084869" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/NTPClient"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/WiFiEsp/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/EasyNTPClient/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ArduinoJson/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ThingSpeak/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ESPDateTime/include"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ESPDateTime/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Time"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit ST7735 and ST7789 Library"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit GFX Library"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/SPI"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/libc/xtensa-lx106-elf/include"/>
@@ -320,21 +363,18 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip2/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/variants/d1_mini"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit BusIO"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit seesaw Library"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/SD"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/EEPROM"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266AVRISP/src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPUpdateServer/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266LLMNR"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266NetBIOS"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SSDP"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SdFat/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFiMesh/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266httpUpdate/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS/src"/>
@@ -353,7 +393,7 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/tool-unity"/>
 								</option>
 								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.2055633423" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
-									<listOptionValue builtIn="false" value="PLATFORMIO=50002"/>
+									<listOptionValue builtIn="false" value="PLATFORMIO=50004"/>
 									<listOptionValue builtIn="false" value="ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ARCH_ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ESP8266_WEMOS_D1MINI"/>
@@ -376,8 +416,19 @@
 								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1246337321" name="Include Paths" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/NTPClient"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/WiFiEsp/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/EasyNTPClient/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ArduinoJson/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ThingSpeak/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ESPDateTime/include"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/ESPDateTime/src"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Time"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit ST7735 and ST7789 Library"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit GFX Library"/>
+									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/SPI"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/libc/xtensa-lx106-elf/include"/>
@@ -385,21 +436,18 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/tools/sdk/lwip2/include"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/variants/d1_mini"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit BusIO"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/Adafruit seesaw Library"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/git/Wemos_Display_ST7735S/.pio/libdeps/d1_mini/SD"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ArduinoOTA"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/EEPROM"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266AVRISP/src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPUpdateServer/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266LLMNR"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266NetBIOS"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SSDP"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266SdFat/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
-									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFiMesh/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266httpUpdate/src"/>
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS/src"/>
@@ -418,7 +466,7 @@
 									<listOptionValue builtIn="false" value="${USERPROFILE}/.platformio/packages/tool-unity"/>
 								</option>
 								<option id="org.eclipse.cdt.build.core.settings.holder.symbols.2122043341" name="Symbols" superClass="org.eclipse.cdt.build.core.settings.holder.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
-									<listOptionValue builtIn="false" value="PLATFORMIO=50002"/>
+									<listOptionValue builtIn="false" value="PLATFORMIO=50004"/>
 									<listOptionValue builtIn="false" value="ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ARCH_ESP8266"/>
 									<listOptionValue builtIn="false" value="ARDUINO_ESP8266_WEMOS_D1MINI"/>
