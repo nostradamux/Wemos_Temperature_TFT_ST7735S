@@ -6,6 +6,7 @@
 #include <ESP8266WiFi.h>
 #include "..\..\Credentials\CredentialsPvarela.h"
 #include "..\..\Credentials\ThingSpeak_Personal_Channels.h"
+#include <UniversalTelegramBot.h>   // Universal Telegram Bot Library written by Brian Lough: https://github.com/witnessmenow/Universal-Arduino-Telegram-Bot
 #include <ESP8266HTTPClient.h>
 #include <WiFiEspUdp.h>
 #include <Time.h>
@@ -46,6 +47,22 @@
 #define TEMPERATURE_X_CIRCLE_POSITION	TEMPERATURE_X_1_POSITION + 54
 #define TEMPERATURE_X_UNITS_POSITION	TEMPERATURE_X_1_POSITION + 60
 
+// Initialize Telegram BOT
+#define BOTtoken "683023753:AAFpv8x1nRmf1QMXdRPvK--XL9S2sI3HFgc"
+
+// Use @myidbot to find out the chat ID of an individual or a group
+// Also note that you need to click "start" on a bot before it can
+// message you
+#define CHAT_ID "675668025"
+
+WiFiClientSecure client;
+UniversalTelegramBot bot(BOTtoken, client);
+WiFiClient  client2;
+
+// Checks for new messages every 1 second.
+int botRequestDelay = 1000;
+unsigned long lastTimeBotRan;
+
 Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_RST);
 // Define NTP Client to get time
 WiFiUDP ntpUDP;
@@ -56,14 +73,72 @@ String formattedCurrentDate;
 String dayStamp;
 String timeStamp;
 
-WiFiClient  client;
+String botText;
+
+bool alert_Telegram = true;
+
 int statusCode;
 enum enumTemp{
 	enumExteriorTemp,
 	enumSalonTemp,
-	enumAlenTemp,
-	enumEderTemp
+	enumOficinaTemp,
+	enumPasilloTemp
 };
+
+// Handle what happens when you receive new messages
+void handleNewMessages(int numNewMessages) {
+  Serial.println("handleNewMessages");
+  Serial.println(String(numNewMessages));
+
+  for (int i=0; i<numNewMessages; i++) {
+    // Chat id of the requester
+    String chat_id = String(bot.messages[i].chat_id);
+    if (chat_id != CHAT_ID){
+      bot.sendMessage(chat_id, "Unauthorized user", "");
+      continue;
+    }
+
+    // Print the received message
+    String text = bot.messages[i].text;
+    Serial.println(text);
+
+    String from_name = bot.messages[i].from_name;
+
+    if (text == "/start") {
+      String welcome = "Welcome, " + from_name + ".\n";
+      welcome += "Use the following commands to control your alert\n\n";
+      welcome += "/alert_on to send alert when any Sensor is detected as not updated \n";
+      welcome += "/alert_off to not send alert \n";
+      bot.sendMessage(chat_id, welcome, "");
+    }
+
+    if (text == "/alert_on") {
+      bot.sendMessage(chat_id, "Alert will be sent when any Sensor is detected as not updated ", "");
+      alert_Telegram = true;
+    }
+
+    if (text == "/alert_off") {
+    	bot.sendMessage(chat_id, "Alert will not be sent when any Sensor is detected as not updated ", "");
+    	alert_Telegram = false;
+    }
+
+  }
+}
+
+void botCheckMessages()
+{
+	if (millis() > lastTimeBotRan + botRequestDelay)
+	{
+	  int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+
+	  while(numNewMessages) {
+		Serial.println("got response");
+		handleNewMessages(numNewMessages);
+		numNewMessages = bot.getUpdates(bot.last_message_received + 1);
+	  }
+	  lastTimeBotRan = millis();
+	}
+}
 
 time_t SetDateTime(int y, int m, int d, int h, int mi, int s  )
 {
@@ -154,8 +229,8 @@ uint16_t SetColorTempTxt(enumTemp selection, float temperatureToEvaluate)
 		  }
 		break;
 	case enumSalonTemp:
-	case enumAlenTemp:
-	case enumEderTemp:
+	case enumOficinaTemp:
+	case enumPasilloTemp:
 		if(temperatureToEvaluate >= 30.0)
 		    {
 		  	  	resultColor = ST77XX_MAGENTA;
@@ -200,6 +275,10 @@ void setup(void)
 {
   Serial.begin(115200);
 
+#ifdef ESP8266
+  client.setInsecure();
+#endif
+
   WiFi.mode(WIFI_STA);
    WiFi.begin(ssid, password);
    if (WiFi.waitForConnectResult() != WL_CONNECTED) {
@@ -209,8 +288,11 @@ void setup(void)
    }
    else
    {
- 	  Serial.println("WIFI OK!");
- 	  ThingSpeak.begin(client);
+		Serial.println("WIFI OK!");
+		ThingSpeak.begin(client2);
+		botText = "Sensor Display is connected to " + (String)ssid + " (IP:" + WiFi.localIP().toString() + ", MAC: " + WiFi.macAddress() + ")";
+		Serial.println(botText);
+		bot.sendMessage(CHAT_ID, botText, "");
    }
 
   tft.initR(INITR_BLACKTAB);     // initialize a ST7735S chip, black tab
@@ -228,10 +310,10 @@ void setup(void)
   tft.print("SALON ");
   tft.setTextColor(ST77XX_WHITE, ST7735_BLACK);  // set text color to green and black background
   tft.setCursor(30, TITLE_3_POSITION);
-  tft.print("ALEN ");
+  tft.print("Oficina ");
   tft.setTextColor(ST77XX_WHITE, ST7735_BLACK);  // set text color to green and black background
   tft.setCursor(30, TITLE_4_POSITION);
-  tft.print("EDER ");
+  tft.print("Pasillo ");
 
   timeClient.begin();
   timeClient.setTimeOffset(3600);
@@ -256,32 +338,34 @@ void loop()
 	char _buffer[8];
 	uint16_t colorTempExterior;
 	uint16_t colorTempSalon;
-	uint16_t colorTempAlen;
-	uint16_t colorTempEder;
+	uint16_t colorTempOficina;
+	uint16_t colorTempPasillo;
 	String tempExteriorTime;
 	String tempSalonTime;
-	String tempAlenTime;
-	String tempEderTime;
+	String tempOficinaTime;
+	String tempPasilloTime;
 	String tempExteriorTimeOld;
 	String tempSalonTimeOld;
-	String tempAlenTimeOld;
-	String tempEderTimeOld;
+	String tempOficinaTimeOld;
+	String tempPasilloTimeOld;
 	bool alertDisconnectionTempExterior = true;
 	bool alertDisconnectionTempSalon = true;
-	bool alertDisconnectionTempAlen = true;
-	bool alertDisconnectionTempEder = true;
+	bool alertDisconnectionTempOficina = true;
+	bool alertDisconnectionTempPasillo = true;
 
 	static float tempExterior = -20;
 	static float tempSalon = 0.0;
-	static float tempAlen = 0.0;
-	static float tempEder = 0.0;
+	static float tempOficina = 0.0;
+	static float tempPasillo = 0.0;
 	static float tempExteriorOld = tempExterior;
 	static float tempSalonOld = tempSalon;
-	static float tempAlenOld = tempAlen;
-	static float tempEderOld = tempEder;
+	static float tempOficinaOld = tempOficina;
+	static float tempPasilloOld = tempPasillo;
 	int delimiter_1, delimiter_2;
 
 	Serial.println("\n\r\n\r");
+
+	botText = "";
 
 	/*Current time*/
     formattedCurrentDate = getCurrentTime();
@@ -306,7 +390,12 @@ void loop()
 	  Serial.printf(". No sample during %d s\n\r",(int)(currentT-lastSampleSent));
 	  if((int)(currentT-lastSampleSent)> MAX_SEC_ALLOWED_WITH_NO_SAMPLE)
 	  {
-		  alertDisconnectionTempExterior = true;
+		alertDisconnectionTempExterior = true;
+		if (alert_Telegram == true)
+		{
+			botText += "Sensor Exterior seems to be disconnected!.";
+			Serial.println(botText);
+		}
 	  }
 	  else
 	  {
@@ -341,6 +430,11 @@ void loop()
 	  if((int)(currentT-lastSampleSent)> MAX_SEC_ALLOWED_WITH_NO_SAMPLE)
 	  {
 		  alertDisconnectionTempSalon = true;
+		  if (alert_Telegram == true)
+			{
+			    botText += "Sensor Salon seems to be disconnected!.";
+				Serial.println(botText);
+			}
 	  }
 	  else
 	  {
@@ -358,89 +452,99 @@ void loop()
 
     /*Get temperature Alén*/
 	delay(100);
-    tempAlen  = ThingSpeak.readFloatField(channelTempAlen, FieldNumber1, thingSpeakReadAPIKey_Alen);
+    tempOficina  = ThingSpeak.readFloatField(channelTempOficina, FieldNumber1, thingSpeakReadAPIKey_Oficina);
 	statusCode = ThingSpeak.getLastReadStatus();
 	if (statusCode == 200)
 	{
-	  tempAlenTime= ThingSpeak.readCreatedAt(channelTempAlen, thingSpeakReadAPIKey_Alen);
-	  lastSampleSent = convertToTime(tempAlenTime);
+	  tempOficinaTime= ThingSpeak.readCreatedAt(channelTempOficina, thingSpeakReadAPIKey_Oficina);
+	  lastSampleSent = convertToTime(tempOficinaTime);
 	  Serial.print("Temperature Alén ");
-	  Serial.print(tempAlen);
+	  Serial.print(tempOficina);
 	  Serial.print("ºC at ");
-	  delimiter_1 = tempAlenTime.indexOf("T");
-	  delimiter_2 = tempAlenTime.indexOf("+");
-	  tempAlenTime = tempAlenTime.substring(delimiter_1 + 1, delimiter_2);
-	  Serial.print(tempAlenTime);
+	  delimiter_1 = tempOficinaTime.indexOf("T");
+	  delimiter_2 = tempOficinaTime.indexOf("+");
+	  tempOficinaTime = tempOficinaTime.substring(delimiter_1 + 1, delimiter_2);
+	  Serial.print(tempOficinaTime);
 	  Serial.printf(". No sample during %d s\n\r",(int)(currentT-lastSampleSent));
 	  if((int)(currentT-lastSampleSent)> MAX_SEC_ALLOWED_WITH_NO_SAMPLE)
 	  {
-		  alertDisconnectionTempAlen = true;
+		alertDisconnectionTempOficina = true;
+		if (alert_Telegram == true)
+		{
+			botText += "Sensor Alén Room seems to be disconnected!.";
+			Serial.println(botText);
+			bot.sendMessage(CHAT_ID, botText, "");
+		}
 	  }
 	  else
 	  {
-		  alertDisconnectionTempAlen = false;
+		  alertDisconnectionTempOficina = false;
 	  }
-	  tempAlenOld = tempAlen;
-	  tempAlenTimeOld = tempAlenTime;
+	  tempOficinaOld = tempOficina;
+	  tempOficinaTimeOld = tempOficinaTime;
 	}
 	else
 	{
 	  Serial.println("Unable to read channel / No internet connection");
-	  tempAlen = tempAlenOld;
-	  tempAlenTime = tempAlenTimeOld;
+	  tempOficina = tempOficinaOld;
+	  tempOficinaTime = tempOficinaTimeOld;
 	}
 
-    /*Get temperature Eder*/
+    /*Get temperature Pasillo*/
 	delay(100);
-    tempEder  = ThingSpeak.readFloatField(channelTempEder, FieldNumber1, thingSpeakReadAPIKey_Eder);
+    tempPasillo  = ThingSpeak.readFloatField(channelTempPasillo, FieldNumber1, thingSpeakReadAPIKey_Pasillo);
 	statusCode = ThingSpeak.getLastReadStatus();
 	if (statusCode == 200)
 	{
-	  tempEderTime= ThingSpeak.readCreatedAt(channelTempEder, thingSpeakReadAPIKey_Eder);
-	  lastSampleSent = convertToTime(tempEderTime);
-	  Serial.print("Temperature Eder ");
-	  Serial.print(tempEder);
+	  tempPasilloTime= ThingSpeak.readCreatedAt(channelTempPasillo, thingSpeakReadAPIKey_Pasillo);
+	  lastSampleSent = convertToTime(tempPasilloTime);
+	  Serial.print("Temperature Pasillo ");
+	  Serial.print(tempPasillo);
 	  Serial.print("ºC at ");
-	  delimiter_1 = tempEderTime.indexOf("T");
-	  delimiter_2 = tempEderTime.indexOf("+");
-	  tempEderTime = tempEderTime.substring(delimiter_1 + 1, delimiter_2);
-	  Serial.print(tempEderTime);
+	  delimiter_1 = tempPasilloTime.indexOf("T");
+	  delimiter_2 = tempPasilloTime.indexOf("+");
+	  tempPasilloTime = tempPasilloTime.substring(delimiter_1 + 1, delimiter_2);
+	  Serial.print(tempPasilloTime);
 	  Serial.printf(". No sample during %d s\n\r",(int)(currentT-lastSampleSent));
 	  if((int)(currentT-lastSampleSent)> MAX_SEC_ALLOWED_WITH_NO_SAMPLE)
 	  {
-		  alertDisconnectionTempEder = true;
+			alertDisconnectionTempPasillo = true;
+			if (alert_Telegram == true)
+			{
+				botText += "Sensor Pasillo Room seems to be disconnected!.";
+				Serial.println(botText);
+				bot.sendMessage(CHAT_ID, botText, "");
+			}
 	  }
 	  else
 	  {
-		  alertDisconnectionTempEder = false;
+		  alertDisconnectionTempPasillo = false;
 	  }
-	  tempEderOld = tempEder;
-	  tempEderTimeOld = tempEderTime;
+	  tempPasilloOld = tempPasillo;
+	  tempPasilloTimeOld = tempPasilloTime;
 
 	}
 	else
 	{
 	  Serial.println("Unable to read channel / No internet connection");
-	  tempEder = tempEderOld;
-	  tempEderTime = tempEderTimeOld;
+	  tempPasillo = tempPasilloOld;
+	  tempPasilloTime = tempPasilloTimeOld;
 	}
 
 	colorTempExterior = SetColorTempTxt(enumExteriorTemp, tempExterior);
 	colorTempSalon = SetColorTempTxt(enumSalonTemp, tempSalon);
-	colorTempAlen = SetColorTempTxt(enumAlenTemp, tempAlen);
-	colorTempEder = SetColorTempTxt(enumEderTemp, tempEder);
+	colorTempOficina = SetColorTempTxt(enumOficinaTemp, tempOficina);
+	colorTempPasillo = SetColorTempTxt(enumPasilloTemp, tempPasillo);
 
 	//print temperatura exterior;
 	tft.setTextSize(1);
 	if(alertDisconnectionTempExterior)
 	{
 		tft.setTextColor(ST77XX_RED, ST77XX_BLACK);     // set text color to red and black background
-		tempExteriorTime += "!!";
 	}
 	else
 	{
 		tft.setTextColor(ST77XX_WHITE, ST77XX_BLACK);     // set text color to white and black background
-		tempExteriorTime += "  ";
 	}
 	tft.setCursor(68, SAMPLE_TIME_1_POSITION);
 	tft.print(tempExteriorTime);
@@ -458,12 +562,10 @@ void loop()
 	if(alertDisconnectionTempSalon)
 	{
 		tft.setTextColor(ST77XX_RED, ST77XX_BLACK);     // set text color to red and black background
-		tempSalonTime += "!!";
 	}
 	else
 	{
 		tft.setTextColor(ST77XX_WHITE, ST77XX_BLACK);     // set text color to white and black background
-		tempSalonTime += "  ";
 	}
 	tft.setCursor(60, SAMPLE_TIME_2_POSITION );
 	tft.print(tempSalonTime);
@@ -478,51 +580,51 @@ void loop()
 
 	// print temperature Alén (in °C)
 	tft.setTextSize(1);
-	if(alertDisconnectionTempAlen)
+	if(alertDisconnectionTempOficina)
 	{
 		tft.setTextColor(ST77XX_RED, ST77XX_BLACK);     // set text color to red and black background
-		tempAlenTime += "!!";
 	}
 	else
 	{
 		tft.setTextColor(ST77XX_WHITE, ST77XX_BLACK);     // set text color to white and black background
-		tempAlenTime += "  ";
 	}
 	tft.setCursor(63,SAMPLE_TIME_3_POSITION);
-	tft.print(tempAlenTime);
+	tft.print(tempOficinaTime);
 	tft.setTextSize(2);
-	dtostrf(tempAlen, 2, 1, _buffer);
-	tft.setTextColor(colorTempAlen, ST77XX_BLACK);  // set text color to orange and black background
+	dtostrf(tempOficina, 2, 1, _buffer);
+	tft.setTextColor(colorTempOficina, ST77XX_BLACK);  // set text color to orange and black background
 	tft.setCursor(TEMPERATURE_X_3_POSITION,TEMPERATURE_Y_3_POSITION);
 	tft.print(_buffer);
-	tft.drawCircle(TEMPERATURE_X_CIRCLE_POSITION, TEMPERATURE_Y_3_POSITION, 2, colorTempAlen);  // print degree symbol ( ° )
+	tft.drawCircle(TEMPERATURE_X_CIRCLE_POSITION, TEMPERATURE_Y_3_POSITION, 2, colorTempOficina);  // print degree symbol ( ° )
 	tft.setCursor(TEMPERATURE_X_UNITS_POSITION, TEMPERATURE_Y_3_POSITION);
 	tft.print("C");
 
-	// print temperature Eder (in °C)
+	// print temperature Pasillo (in °C)
 	tft.setTextSize(1);
-	if(alertDisconnectionTempEder)
+	if(alertDisconnectionTempPasillo)
 	{
 		tft.setTextColor(ST77XX_RED, ST77XX_BLACK);     // set text color to red and black background
-		tempEderTime += "!!";
 	}
 	else
 	{
 		tft.setTextColor(ST77XX_WHITE, ST77XX_BLACK);     // set text color to white and black background
-		tempEderTime += "  ";
 	}
 	tft.setCursor(63,SAMPLE_TIME_4_POSITION);
-	tft.print(tempEderTime);
+	tft.print(tempPasilloTime);
 	tft.setTextSize(2);
-	dtostrf(tempEder, 2, 1, _buffer);
-	tft.setTextColor(colorTempEder, ST77XX_BLACK);  // set text color to orange and black background
+	dtostrf(tempPasillo, 2, 1, _buffer);
+	tft.setTextColor(colorTempPasillo, ST77XX_BLACK);  // set text color to orange and black background
 	tft.setCursor(TEMPERATURE_X_4_POSITION,TEMPERATURE_Y_4_POSITION);
 	tft.print(_buffer);
-	tft.drawCircle(TEMPERATURE_X_CIRCLE_POSITION, TEMPERATURE_Y_4_POSITION, 2, colorTempEder);  // print degree symbol ( ° )
+	tft.drawCircle(TEMPERATURE_X_CIRCLE_POSITION, TEMPERATURE_Y_4_POSITION, 2, colorTempPasillo);  // print degree symbol ( ° )
 	tft.setCursor(TEMPERATURE_X_UNITS_POSITION, TEMPERATURE_Y_4_POSITION);
 	tft.print("C");
 
 //  Serial.println(ntpClient.getUnixTime());
-
-  delay(5000);    // wait a second
+	if(alert_Telegram == true)
+	{
+		bot.sendMessage(CHAT_ID, botText, "");
+	}
+	delay(5000);    // wait a second
+	botCheckMessages();
 }
